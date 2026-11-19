@@ -40,6 +40,7 @@ export default function Catalog() {
           <button
             key={cat}
             className={`badge ${cat === category ? "badge--primary" : "badge--neutral"}`}
+            aria-pressed={cat === category}
             onClick={() => setCategory(cat)}
           >
             {cat}

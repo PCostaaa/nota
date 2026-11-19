@@ -1,0 +1,30 @@
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  gap: 12px;
+}
+
+.not-found-page__code {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.25;
+}
+
+.not-found-page__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.not-found-page__text {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 360px;
+}

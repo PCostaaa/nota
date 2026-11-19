@@ -2,25 +2,14 @@ import { Link } from "react-router";
 import Badge from "../components/Badge";
 import ProgressBar from "../components/ProgressBar";
 import { courses } from "../data/courses";
+import { getEnrolled, getCompleted, getStats } from "../data/progress-store";
 import "./Progress.css";
 
-const enrolled = [
-  { courseId: "ui-design", progress: 35 },
-  { courseId: "react", progress: 10 },
-];
-
-const completed = [
-  { courseId: "marketing", completedDate: "Nov 4, 2026" },
-];
-
-const stats = [
-  { value: "3", label: "Courses enrolled" },
-  { value: "12", label: "Lessons completed" },
-  { value: "6h", label: "Time spent" },
-  { value: "1", label: "Certificates earned" },
-];
-
 export default function Progress() {
+  const enrolled = getEnrolled();
+  const completed = getCompleted();
+  const stats = getStats();
+
   return (
     <>
       <div className="progress-header">

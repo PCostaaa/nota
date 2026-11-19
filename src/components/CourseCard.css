@@ -10,6 +10,7 @@
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .course-card:hover { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transform: translateY(-2px); }
+[data-theme="dark"] .course-card:hover { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
 
 .course-card__image {
   position: relative;

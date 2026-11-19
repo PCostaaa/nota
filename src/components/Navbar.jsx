@@ -57,7 +57,16 @@ export default function Navbar() {
         </button>
       </div>
 
-      {menuOpen && <div className="navbar__overlay" onClick={() => setMenuOpen(false)} />}
+      {menuOpen && (
+        <div
+          className="navbar__overlay"
+          aria-label="Close menu"
+          role="button"
+          tabIndex={0}
+          onClick={() => setMenuOpen(false)}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setMenuOpen(false); }}
+        />
+      )}
 
       <div className={`navbar__mobile-menu ${menuOpen ? "navbar__mobile-menu--open" : ""}`}>
         {links.map((link) => (

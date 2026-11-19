@@ -42,8 +42,8 @@ export default function CourseDetail() {
                 <Star
                   key={i}
                   size={12}
-                  fill={i < Math.round(course.rating) ? "#FDCB6E" : "none"}
-                  stroke={i < Math.round(course.rating) ? "#FDCB6E" : "#DFE6E9"}
+                  fill={i < Math.round(course.rating) ? "var(--warning)" : "none"}
+                  stroke={i < Math.round(course.rating) ? "var(--warning)" : "var(--stroke)"}
                 />
               ))}
               <span>{course.rating}</span>

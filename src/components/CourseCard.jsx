@@ -5,7 +5,7 @@ import "./CourseCard.css";
 
 export default function CourseCard({ course }) {
     return (
-        <Link to={`/course/${course.id}`} className="course-card">
+        <Link to={`/course/${course.id}`} className="course-card fade-in">
             <div className="course-card__image">
                 <img src={course.image} alt={course.title} loading="lazy" />
                 <Badge>{course.category}</Badge>
@@ -26,11 +26,11 @@ export default function CourseCard({ course }) {
                         <span className="course-card__score">{course.rating}</span>
                         <div className="course-card__stars">
                             {Array.from({ length: 5 }, (_, i) => (
-                                <Star 
+                                <Star
                                     key={i}
                                     size={12}
-                                    fill={i < Math.round(course.rating) ? "#FDCB6E" : "none"}
-                                    stroke={i < Math.round(course.rating) ? "#FDCB6E" : "#DFE6E9"}
+                                    fill={i < Math.round(course.rating) ? "var(--warning)" : "none"}
+                                    stroke={i < Math.round(course.rating) ? "var(--warning)" : "var(--stroke)"}
                                 />
                             ))}
                         </div>

@@ -7,6 +7,7 @@ import LessonPlayer from "./pages/LessonPlayer";
 import Progress from "./pages/Progress";
 import Quiz from "./pages/Quiz";
 import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
 import "./App.css";
 
 function ScrollToTop() {
@@ -36,6 +37,20 @@ function FullWidthLayout() {
 }
 
 export default function App() {
+  /* Apply dark mode from localStorage on mount — fall back to OS preference */
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("nota_darkMode");
+      if (saved === "true") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else if (saved === "false") {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch { /* ignore */ }
+  }, []);
+
   return (
     <>
     <ScrollToTop />
@@ -46,6 +61,7 @@ export default function App() {
         <Route path="progress" element={<Progress />} />
         <Route path="quiz" element={<Quiz />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
       <Route element={<FullWidthLayout />}>
         <Route path="course/:courseId/lesson" element={<LessonPlayer />} />

@@ -14,3 +14,14 @@
 .badge--success { background: #d5f5e3; color: var(--success); }
 .badge--warning { background: #fff4d6; color: #e67e22; }
 .badge--neutral { background: #f0f0f0; color: var(--text-muted); }
+
+/* Dark mode — make badge backgrounds readable */
+[data-theme="dark"] .badge--success { background: rgba(85, 239, 196, 0.15); color: var(--success); }
+[data-theme="dark"] .badge--warning { background: rgba(255, 234, 167, 0.15); color: var(--warning); }
+[data-theme="dark"] .badge--neutral { background: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .badge--success { background: rgba(85, 239, 196, 0.15); color: var(--success); }
+  :root:not([data-theme="light"]) .badge--warning { background: rgba(255, 234, 167, 0.15); color: var(--warning); }
+  :root:not([data-theme="light"]) .badge--neutral { background: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
+}

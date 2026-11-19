@@ -35,6 +35,7 @@
   transition: box-shadow 0.2s;
 }
 .certificate:hover { box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05); }
+[data-theme="dark"] .certificate:hover { box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3); }
 
 .certificate__bar {
   height: 4px;
@@ -57,15 +58,157 @@
 .certificate__divider { height: 1px; background: var(--stroke); }
 .certificate__actions { display: flex; gap: 12px; }
 
-/* Coming soon sections */
+/* Shared section card */
 .profile-section {
   padding: 32px;
   background: var(--surface);
   border: 1px solid var(--stroke);
   border-radius: 12px;
 }
-.profile-section__title { margin: 0 0 8px; font-size: 22px; font-weight: 600; }
+.profile-section__title { margin: 0 0 20px; font-size: 22px; font-weight: 600; }
 .profile-section__text { margin: 0; color: var(--text-muted); }
+
+/* Account tab */
+.account { display: flex; flex-direction: column; gap: 24px; }
+
+/* Form fields */
+.form-fields { display: flex; flex-direction: column; gap: 16px; }
+
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.form-field__input {
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.form-field__input:focus {
+  border-color: var(--primary);
+}
+.form-field__input--readonly {
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.form-field__select-wrap {
+  position: relative;
+}
+.form-field__select {
+  width: 100%;
+  padding: 10px 38px 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.form-field__select:focus {
+  border-color: var(--primary);
+}
+.form-field__chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Danger zone */
+.danger-zone {
+  padding: 24px;
+  background: #fdeeed;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 12px;
+}
+[data-theme="dark"] .danger-zone {
+  background: rgba(255, 118, 117, 0.1);
+  border-color: rgba(255, 118, 117, 0.25);
+}
+.danger-zone__title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--error);
+}
+.danger-zone__text {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.btn--danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #fff;
+  background: var(--error);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn--danger:hover { opacity: 0.9; }
+
+/* Preferences tab */
+.preferences { display: flex; flex-direction: column; gap: 24px; }
+
+/* Toggle rows */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.toggle-row__text { display: flex; flex-direction: column; gap: 2px; }
+.toggle-row__label { font-size: 15px; font-weight: 500; color: var(--text); }
+.toggle-row__desc { font-size: 13px; color: var(--text-muted); }
+.toggle-row__divider { height: 1px; background: var(--stroke); margin: 4px 0; }
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--stroke);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.toggle--on { background: var(--success); }
+
+.toggle__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.toggle--on .toggle__knob { transform: translateX(20px); }
 
 @media (max-width: 768px) {
   .profile-header__avatar { width: 60px; height: 60px; }
@@ -75,6 +218,8 @@
   .certificate__course { font-size: 18px; }
   .certificate__actions { flex-direction: column; }
   .certificate__actions .btn { width: 100%; }
+  .profile-section { padding: 24px; }
+  .danger-zone { padding: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -82,4 +227,5 @@
   .profile-header__avatar { width: 48px; height: 48px; }
   .profile-header__name { font-size: 20px; }
   .profile-section { padding: 20px; }
+  .profile-section__title { font-size: 18px; }
 }

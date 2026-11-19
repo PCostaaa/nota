@@ -2,19 +2,33 @@ import { useState } from "react";
 import { Link } from "react-router";
 import Badge from "../components/Badge";
 import ProgressBar from "../components/ProgressBar";
-import { quizData } from "../data/quiz";
+import { quizData, getQuizForCourse, getAvailableQuizCourses } from "../data/quiz";
+import { courses } from "../data/courses";
 import "./Quiz.css";
 
 export default function Quiz() {
+  const availableIds = getAvailableQuizCourses();
+  const [courseId, setCourseId] = useState(availableIds[0]);
+  const quiz = getQuizForCourse(courseId);
+
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
 
-  const question = quizData.questions[current];
-  const total = quizData.questions.length;
+  const question = quiz.questions[current];
+  const total = quiz.questions.length;
   const progress = ((current + (answered ? 1 : 0)) / total) * 100;
+
+  function resetQuiz(newCourseId) {
+    setCourseId(newCourseId || courseId);
+    setCurrent(0);
+    setSelected(null);
+    setAnswered(false);
+    setScore(0);
+    setFinished(false);
+  }
 
   function handleSelect(optionId) {
     if (answered) return;
@@ -52,10 +66,10 @@ export default function Quiz() {
           </p>
           <ProgressBar value={(score / total) * 100} />
           <div className="quiz-result__actions">
-            <button className="btn btn--outline" onClick={() => { setCurrent(0); setSelected(null); setAnswered(false); setScore(0); setFinished(false); }}>
+            <button className="btn btn--outline" onClick={() => resetQuiz()}>
               Try again
             </button>
-            <Link to={`/course/${quizData.courseId}/lesson`} className="btn btn--primary">
+            <Link to={`/course/${quiz.courseId}/lesson`} className="btn btn--primary">
               Back to lesson
             </Link>
           </div>
@@ -66,8 +80,25 @@ export default function Quiz() {
 
   return (
     <div className="quiz-container">
-      <Badge>Lesson {quizData.lessonNumber} Quiz</Badge>
-      <h1 className="quiz-title">{quizData.lessonTitle}</h1>
+      {/* Course selector */}
+      <div className="quiz-course-selector">
+        {availableIds.map((id) => {
+          const course = courses.find((c) => c.id === id);
+          return (
+            <button
+              key={id}
+              className={`badge ${id === courseId ? "badge--primary" : "badge--neutral"}`}
+              aria-pressed={id === courseId}
+              onClick={() => resetQuiz(id)}
+            >
+              {course?.title || id}
+            </button>
+          );
+        })}
+      </div>
+
+      <Badge>Lesson {quiz.lessonNumber} Quiz</Badge>
+      <h1 className="quiz-title">{quiz.lessonTitle}</h1>
 
       <div className="quiz-progress">
         <span className="quiz-progress__text">Question {current + 1} of {total}</span>

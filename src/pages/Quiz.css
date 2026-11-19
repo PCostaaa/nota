@@ -1,5 +1,13 @@
 .quiz-container { max-width: 640px; margin: 0 auto; }
 
+/* Course selector */
+.quiz-course-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
 .quiz-title { margin: 12px 0 0; font-size: 28px; font-weight: 600; }
 
 .quiz-progress { margin-top: 24px; }

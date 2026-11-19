@@ -47,7 +47,7 @@
   height: 48px;
   border-radius: 12px;
   overflow: hidden;
-  background: #fff;
+  background: var(--surface);
   margin-top: 8px;
 }
 .hero__search input {
@@ -58,9 +58,10 @@
   font: inherit;
   font-size: 14px;
   color: var(--text);
+  background: transparent;
   outline: none;
 }
-.hero__search input::placeholder { color: #b2bec3; }
+.hero__search input::placeholder { color: var(--text-muted); }
 .hero__search-btn {
   flex-shrink: 0;
   width: 48px;
