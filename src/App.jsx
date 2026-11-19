@@ -1,4 +1,5 @@
-import { Routes, Route, Outlet } from "react-router";
+import { Routes, Route, Outlet, useLocation } from "react-router";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Catalog from "./pages/Catalog";
 import CourseDetail from "./pages/CourseDetail";
@@ -7,6 +8,12 @@ import Progress from "./pages/Progress";
 import Quiz from "./pages/Quiz";
 import Profile from "./pages/Profile";
 import "./App.css";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 
 function Layout() {
   return (
@@ -30,6 +37,8 @@ function FullWidthLayout() {
 
 export default function App() {
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Catalog />} />
@@ -42,5 +51,6 @@ export default function App() {
         <Route path="course/:courseId/lesson" element={<LessonPlayer />} />
       </Route>
     </Routes>
+    </>
   );
 }

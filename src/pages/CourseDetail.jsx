@@ -18,8 +18,6 @@ export default function CourseDetail() {
     );
   }
 
-  const completedCount = course.curriculum.filter((l) => l.completed).length;
-
   return (
     <>
       <div className="breadcrumb">
@@ -30,7 +28,7 @@ export default function CourseDetail() {
 
       <div className="detail">
         <div className="detail__main">
-          <img src={course.image} alt={course.title} className="detail__image" />
+          <img src={course.image} alt={course.title} className="detail__image" loading="lazy" />
           <h1 className="detail__title">{course.title}</h1>
 
           <div className="detail__meta">

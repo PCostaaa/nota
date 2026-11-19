@@ -43,7 +43,7 @@ export default function Progress() {
           const course = courses.find((c) => c.id === courseId);
           return (
             <div key={courseId} className="course-row">
-              <img src={course.image} alt={course.title} className="course-row__image" />
+              <img src={course.image} alt={course.title} className="course-row__image" loading="lazy" />
               <div className="course-row__text">
                 <strong className="course-row__title">{course.title}</strong>
                 <span className="course-row__instructor">{course.instructor.name}</span>
@@ -62,11 +62,11 @@ export default function Progress() {
 
       <h2 className="section-title">Completed</h2>
       <div className="course-rows">
-        {completed.map(({ courseId, completedDate }) => {
+        {completed.map(({ courseId }) => {
           const course = courses.find((c) => c.id === courseId);
           return (
             <div key={courseId} className="course-row">
-              <img src={course.image} alt={course.title} className="course-row__image" />
+              <img src={course.image} alt={course.title} className="course-row__image" loading="lazy" />
               <div className="course-row__text">
                 <strong className="course-row__title">{course.title}</strong>
                 <span className="course-row__instructor">{course.instructor.name}</span>

@@ -23,8 +23,9 @@
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
   cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
 }
-.player__play:hover { background: rgba(255, 255, 255, 0.3); }
+.player__play:hover { background: rgba(255, 255, 255, 0.3); transform: scale(1.08); }
 
 .player__video-track {
   position: absolute;
@@ -34,12 +35,13 @@
   height: 4px;
   background: #333;
 }
-.player__video-fill { height: 100%; background: var(--primary); }
+.player__video-fill { height: 100%; background: var(--primary); transition: width 0.3s ease; }
 
 .player__controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   padding: 24px 32px;
 }
 .player__title { margin: 0; font-size: 18px; font-weight: 600; }
@@ -63,7 +65,7 @@
   border-radius: 999px;
   background: #2d2d4a;
 }
-.player__progress-fill { height: 100%; border-radius: 999px; background: var(--primary); }
+.player__progress-fill { height: 100%; border-radius: 999px; background: var(--primary); transition: width 0.4s ease; }
 
 .player__sidebar-divider { margin: 16px 0; height: 1px; background: #2d2d4a; }
 
@@ -82,6 +84,7 @@
   font: inherit;
   text-align: left;
   cursor: pointer;
+  transition: background 0.2s;
 }
 .player__lesson:hover { background: rgba(255, 255, 255, 0.05); }
 .player__lesson--active { background: #2d2d4a; }
@@ -119,14 +122,24 @@
   color: #fff;
 }
 
-.player__lesson { transition: background 0.2s; }
-
 @media (max-width: 900px) {
   .player { flex-direction: column; }
   .player__sidebar { width: 100%; max-height: none; }
 }
 
 @media (max-width: 768px) {
-  .player__controls { flex-direction: column; gap: 12px; padding: 16px; align-items: flex-start; }
+  .player__controls {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    align-items: stretch;
+  }
   .player__title { font-size: 16px; }
+  .player__buttons { flex-direction: column; }
+  .player__buttons .btn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .player__play { width: 52px; height: 52px; }
+  .player__sidebar { padding: 16px; }
 }

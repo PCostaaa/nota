@@ -1,5 +1,19 @@
-.main { max-width: 1344px; margin: 0 auto; padding: 24px 48px; }
+.main {
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 24px 48px 48px;
+  animation: pageEnter 0.25s ease;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 768px) {
-  .main { padding: 16px; }
+  .main { padding: 16px 16px 32px; }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 12px 12px 24px; }
 }

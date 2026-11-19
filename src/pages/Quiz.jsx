@@ -82,6 +82,7 @@ export default function Quiz() {
             key={option.id}
             className={getOptionClass(option.id)}
             onClick={() => handleSelect(option.id)}
+            disabled={answered}
           >
             <span className="quiz-option__letter">{option.id.toUpperCase()}</span>
             <span className="quiz-option__text">{option.text}</span>

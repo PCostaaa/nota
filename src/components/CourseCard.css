@@ -16,7 +16,13 @@
   height: 180px;
   overflow: hidden;
 }
-.course-card__image img { width: 100%; height: 100%; object-fit: cover; }
+.course-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.course-card:hover .course-card__image img { transform: scale(1.03); }
 .course-card__image .badge { position: absolute; top: 12px; left: 12px; }
 
 .course-card__body { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
@@ -38,3 +44,8 @@
 .course-card__score { font-size: 13px; font-weight: 500; }
 .course-card__stars { display: flex; gap: 2px; }
 .course-card__lessons { font-size: 13px; color: var(--text-muted); }
+
+@media (max-width: 480px) {
+  .course-card__image { height: 160px; }
+  .course-card__title { font-size: 15px; }
+}

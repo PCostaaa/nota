@@ -7,7 +7,7 @@ export default function CourseCard({ course }) {
     return (
         <Link to={`/course/${course.id}`} className="course-card">
             <div className="course-card__image">
-                <img src={course.image} alt={course.title} />
+                <img src={course.image} alt={course.title} loading="lazy" />
                 <Badge>{course.category}</Badge>
             </div>
 
