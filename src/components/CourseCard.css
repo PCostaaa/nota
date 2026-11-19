@@ -1,0 +1,40 @@
+.course-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.course-card:hover { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transform: translateY(-2px); }
+
+.course-card__image {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.course-card__image img { width: 100%; height: 100%; object-fit: cover; }
+.course-card__image .badge { position: absolute; top: 12px; left: 12px; }
+
+.course-card__body { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.course-card__title { margin: 0; font-size: 16px; font-weight: 600; }
+
+.course-card__instructor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.course-card__instructor img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+
+.course-card__divider { height: 1px; background: var(--stroke); }
+
+.course-card__footer { display: flex; justify-content: space-between; align-items: center; }
+.course-card__rating { display: flex; align-items: center; gap: 6px; }
+.course-card__score { font-size: 13px; font-weight: 500; }
+.course-card__stars { display: flex; gap: 2px; }
+.course-card__lessons { font-size: 13px; color: var(--text-muted); }

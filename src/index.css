@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+:root {
+  --bg: #F5F5F0;
+  --surface: #FFFFFF;
+  --sidebar: #1A1A2E;
+  --primary: #6C5CE7;
+  --primary-light: #EDE9FE;
+  --success: #00B894;
+  --warning: #FDCB6E;
+  --error: #E74C3C;
+  --text: #2D3436;
+  --text-muted: #636E72;
+  --stroke: #DFE6E9;
+  --accent: #E8A87C;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.97); }
+.btn--primary { background: var(--primary); color: #fff; }
+.btn--secondary { background: var(--primary-light); color: var(--primary); }
+.btn--outline { background: transparent; border-color: var(--stroke); color: var(--text); }
+.btn--small { padding: 8px 16px; font-size: 12px; }
