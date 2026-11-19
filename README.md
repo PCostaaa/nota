@@ -1,16 +1,38 @@
-# React + Vite
+# Nōta — Learning Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A learning platform designed in Figma and built from scratch with React, Vite and React Router.
 
-Currently, two official plugins are available:
+**Live demo:** [https://nota-self-kappa.vercel.app](https://nota-self-kappa.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 6 screens: Catalog, Course Detail, Lesson Player, My Progress, Quiz, Profile
+- Course filtering by category and search
+- Interactive video player with lesson sidebar
+- Quiz with scoring, feedback and retry
+- Progress tracking with completion certificates
+- Responsive layout
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+- **React 19** with React Router v7
+- **Vite** for build and dev server
+- **Lucide React** for icons
+- **Plain CSS** with custom properties
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Design
+
+Designed in Figma with a custom design system: 12 color tokens, 8 text styles (Inter + JetBrains Mono) and 8 reusable components.
+
+## Getting started
+
+```bash
+git clone https://github.com/PCostaaa/nota.git
+cd nota
+npm install
+npm run dev
+```
+
+## Author
+
+Pedro Costa — [Behance](https://www.behance.net/pedrocosta262) · [LinkedIn](https://www.linkedin.com/in/pedroabcosta/)
